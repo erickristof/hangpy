@@ -12,7 +12,7 @@ def wincheck(guesses, a, b):
     else:
         return True
 
-prog = (['','\n\n\n\n\n   ===','\n    |\n    |\n    |\n    |\n   ===',' ____\n    |\n    |\n    |\n    |\n   ===',
+progress = (['','\n\n\n\n\n   ===','\n    |\n    |\n    |\n    |\n   ===',' ____\n    |\n    |\n    |\n    |\n   ===',
          ' ____\n |  |\n    |\n    |\n    |\n   ===',' ____\n |  |\n O  |\n    |\n    |\n   ===',
          ' ____\n |  |\n O  |\n |  |\n    |\n   ===',' ____\n |  |\n O  |\n |  |\n/   |\n   ===',
          ' ____\n |  |\n O  |\n |  |\n/ \ |\n   ===',' ____\n |  |\n O  |\n/|  |\n/ \ |\n   ===',
@@ -45,7 +45,7 @@ while True:
     while wincheck(guesses, blanks, [str(i) for i in the_word]):
         a = str(input("guess:"))
         if len(a) != 1:
-            print (''.join(blanks),"(%s)\n%s" % (','.join(used), prog[guesses]))
+            print (''.join(blanks),"(%s)\n%s" % (','.join(used), progress[guesses]))
             continue
         if a in the_word or a in the_word.lower():
             blanks = ['_' if i != a and i.lower() != a and i not in correct else i for i in the_word]
@@ -54,7 +54,7 @@ while True:
         elif a not in used:
             used.append(a)
             guesses += 1
-        print (''.join(blanks),"(%s)\n%s" % (','.join(used), prog[guesses]))
+        print (''.join(blanks),"(%s)\n%s" % (','.join(used), progress[guesses]))
     
     print ("The word was %s!" % the_word)
     continue
